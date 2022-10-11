@@ -23,15 +23,15 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
+Route::middleware('auth')->group(function(){
     // posts routes
     Route::get('posts', 'PostController@index');
-    Route::post('post/store', 'PostController@store'); 
+    Route::post('post/store', 'PostController@store');
     Route::get('post/{postId}', 'PostController@show');
     Route::get('post/{postId}/edit', 'PostController@show');
     Route::patch('post/{postId}/edit', 'PostController@update');
     Route::delete('post/{postId}', 'PostController@destroy');
 
     // Comments routes
-    Route::post('comment/store', 'CommentController@storeComment'); 
-
+    Route::post('comment/store', 'CommentController@storeComment');
+});
