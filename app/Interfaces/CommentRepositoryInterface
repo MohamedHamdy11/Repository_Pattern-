@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Interfaces;
+
+interface CommentRepositoryInterface
+{
+    public function getAllCommentsByPostId($PostId);
+    public function createComment(array $CommentDetails);
+
+}  // end of CommentRepositoryInterface
